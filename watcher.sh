@@ -53,7 +53,7 @@ while true; do
         md5sum "$PASSWD_FILE" > "$CHECKSUM_FILE"
     else
         echo "No changes detected in $PASSWD_FILE at $(date)." >> "$LOGFILE"
- 
+     fi
     # Get current logged-in users
     current_users=$(who | awk '{print $1}' | sort | uniq)
     
@@ -95,7 +95,6 @@ while true; do
         # Update previous_users for the next iteration
         previous_users="$current_users"
     fi
-
     # Waiting for 1 seconds before the next check
     sleep 1
 done
